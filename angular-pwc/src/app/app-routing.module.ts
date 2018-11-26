@@ -6,6 +6,9 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  }, {
+    path: 'videos',
+    loadChildren: './videos/videos.module#VideosModule'
   }
 ];
 
