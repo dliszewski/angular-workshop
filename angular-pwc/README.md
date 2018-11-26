@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Angular CLI: 7.0.6
+Node: 10.13.0
+npm 6.4.1
+
+
+extensions
+git lens
+angular2-switcher
+search node_modules
+angular 7 snippets -typescript
+angular language service
+auto rename tag
+tslint
+vscode-icons
+
+
+https://bitbucket.org/myflowpl/angular-pwc
