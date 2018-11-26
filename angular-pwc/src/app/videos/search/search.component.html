@@ -1,3 +1,9 @@
+<form class="form-inline" #searchForm="ngForm">
+  <div class="form-group mx-sm-3">
+    <input [(ngModel)]="query" required name="query" type="text" class="form-control" placeholder="Szukaj na youtube">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]=!searchForm.form.valid>Szukaj</button>
+</form>
 <p>
-  search works!
+  Szukam: {{query}}
 </p>
