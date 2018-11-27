@@ -1,0 +1,15 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top"  [src]="video.snippet.thumbnails.medium.url" [alt]="'Card image of ' + video.snippet.title">
+  <div class="card-body">
+    <h5 class="card-title"> {{ video.snippet.title }}</h5>
+    <p class="card-text">{{ video.snippet.description }}</p>
+  </div>
+  <div class="top">
+    <ng-content select="[top]"></ng-content>
+  </div>
+  <div class="left">
+      <ng-content select=".left"></ng-content>
+  </div>
+  <ng-content></ng-content>
+
+</div>

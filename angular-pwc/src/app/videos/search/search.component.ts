@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SearchService, YoutubeResponse } from '../search.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { Video } from '../model/video.model';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
