@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Video } from '../model/video.model';
+import { Video, FavouriteVideo } from '../model/video.model';
 import { SearchService } from '../search.service';
 import { VideoService } from '../services/video.service';
 
@@ -14,9 +14,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   response$: Observable<Video[]>;
   // resp: YoutubeResponse;
   destroy$ = new Subject();
+  favourites$: Observable<FavouriteVideo[]>;
   constructor(private searchService: SearchService, private videoService: VideoService) { }
 
   ngOnInit() {
+    this.videoService.loadFavourite().subscribe(res => console.log('sub', res));
+    this.favourites$ = this.videoService.getFavourites();
   }
 
   onChanges(value) {

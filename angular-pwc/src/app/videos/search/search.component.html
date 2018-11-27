@@ -30,6 +30,11 @@
   Searching youtube for <b>{{ query }}</b>
 </ng-template>
 
+<h2>Favourite videos</h2>
+<div *ngFor="let favVideo of favourites$ | async">
+  {{ favVideo.id }} - {{ favVideo.video.snippet.title}}
+</div>
+
 <!-- <pre>{{ response$ | async | json }}</pre> -->
 <br>
 <!-- unsubscribe on destroy -->
