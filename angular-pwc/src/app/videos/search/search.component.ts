@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Video } from '../model/video.model';
 import { SearchService } from '../search.service';
+import { VideoService } from '../services/video.service';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   response$: Observable<Video[]>;
   // resp: YoutubeResponse;
   destroy$ = new Subject();
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private videoService: VideoService) { }
 
   ngOnInit() {
   }
@@ -35,6 +36,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('DESTROY');
     this.destroy$.next();
+  }
+
+  addFavourite(video: Video) {
+    console.log('add like');
+    this.videoService.addFavourite(video)
+    .subscribe(res => console.log(res), err => console.log(err));
   }
 
 }

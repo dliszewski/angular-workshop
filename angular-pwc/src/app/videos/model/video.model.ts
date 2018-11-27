@@ -15,8 +15,14 @@ export interface Video {
         description: string;
     };
 }
+
 export interface Thumbnail {
     url: string;
     width: number;
     height: number;
+}
+
+export interface FavouriteVideo {
+    id: string;
+    video: Video;
 }
