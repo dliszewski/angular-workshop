@@ -7,7 +7,19 @@
 <p>
   Szukam: {{query}}
 </p>
-<pre>{{ response$ | async | json }}</pre>
+
+<ng-container *ngIf="response$ | async as videos; else elseTemplate">
+  <!-- {{ videos | json}} -->
+  <div *ngFor="let video of videos">
+    {{ video.snippet.title }}
+  </div>
+  
+</ng-container>
+<ng-template #elseTemplate>
+  Searching youtube for <b>{{ query }}</b>
+</ng-template>
+
+<!-- <pre>{{ response$ | async | json }}</pre> -->
 <br>
 <!-- unsubscribe on destroy -->
-<pre>{{ resp | json }}</pre>
+<!-- <pre>{{ resp | json }}</pre> -->

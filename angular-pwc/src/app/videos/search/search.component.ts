@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchService, YoutubeResponse } from '../search.service';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Video } from '../model/video.model';
 
 @Component({
   selector: 'app-search',
@@ -10,8 +11,8 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit, OnDestroy {
   query: string;
-  response$: Observable<YoutubeResponse>;
-  resp: YoutubeResponse;
+  response$: Observable<Video[]>;
+  // resp: YoutubeResponse;
   destroy$ = new Subject();
   constructor(private searchService: SearchService) { }
 
@@ -27,9 +28,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     console.log('submit', this.query);
     this.response$ = this.searchService.searchYoutube(this.query);
 
-    this.searchService.searchYoutube(this.query)
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(res => this.resp = res);
+    // this.searchService.searchYoutube(this.query)
+    // .pipe(takeUntil(this.destroy$))
+    // .subscribe(res => this.resp = res);
   }
 
   ngOnDestroy(): void {
