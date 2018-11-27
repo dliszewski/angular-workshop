@@ -14,7 +14,7 @@
     {{ video.snippet.title }}
   </div> -->
   <div class="card-deck">
-    <app-video-item *ngFor="let video of videos" [video]="video">
+    <app-video-item *ngFor="let video of videos" [video]="video" [videos]="videos">
         <div class="card-footer text-muted">
          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>

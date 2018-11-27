@@ -1,3 +1,10 @@
-<p>
-  video-dialog works!
-</p>
+<!-- <pre>
+ {{ data | json }}
+</pre> -->
+
+<iframe frameborder="0" width="560" height="315" [src]="url" frameborder="0" allowfullscreen="true"></iframe>
+<br>
+<button class="btn btn-default" (click)="onClose()">Close</button>
+<button class="btn btn-default" (click)="onPrevious()">Prvious</button>
+<button class="btn btn-default" (click)="onNext()">Next</button>
+
