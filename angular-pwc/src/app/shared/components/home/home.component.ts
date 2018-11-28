@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import {Coords} from '../../../videos/model/music.model';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   number: number;
   number2 = 666;
   red = 'red';
+  public coords: Coords;
   constructor() { }
 
   ngOnInit() {
@@ -28,4 +30,8 @@ export class HomeComponent implements OnInit {
     this.red = 'green';
   }
 
+  onMapClick(event: Coords) {
+    console.log('Map clicked', event);
+    this.coords = event;
+  }
 }

@@ -10,4 +10,4 @@
 <!-- () communication from component -->
 <div [style.color]=red (click)=onDivClick()>style attribute</div>
 
-<app-map [coords]=number2></app-map>
+<app-map [coords]="coords" (mapClick)="onMapClick($event)"></app-map>
