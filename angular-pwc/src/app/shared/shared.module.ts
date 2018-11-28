@@ -6,6 +6,7 @@ import { MapComponent } from './components/map/map.component';
 import { RouterModule } from '@angular/router';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HighlightDirective } from './directive/highlight.directive';
+import { UnlessDirective } from './directive/unless.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HighlightDirective } from './directive/highlight.directive';
     HomeComponent,
     MapComponent,
     RxjsComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { HighlightDirective } from './directive/highlight.directive';
     MenuComponent,
     HomeComponent,
     MapComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ]
 })
 export class SharedModule { }
