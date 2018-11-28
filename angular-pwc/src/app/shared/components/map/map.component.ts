@@ -50,20 +50,10 @@ export class MapComponent implements OnInit, OnChanges {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // this.mapClick.emit();
-
     map.on('click', (e: L.LeafletMouseEvent) => {
       // console.log('map', e.latlng);
       this.mapClick.next(e.latlng);
     });
-
-    // this.coords$.subscribe((coords: Coords) => {
-    //
-    //   L.marker(coords)
-    //     .addTo(map);
-    //   map.panTo(coords);
-    //
-    // });
   }
 
   ngOnChanges(changes: { [key: string]: SimpleChange }) {
