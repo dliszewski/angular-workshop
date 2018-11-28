@@ -13,6 +13,7 @@ import { ArtistService } from '../services/artist.service';
 export class ArtistViewComponent implements OnInit {
 
   public artist$: Observable<Artist>;
+  isEdit = false;
 
   constructor(private route: ActivatedRoute, private artistService: ArtistService) { }
 

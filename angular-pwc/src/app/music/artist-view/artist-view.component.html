@@ -1,1 +1,9 @@
-<pre> {{ artist$ | async | json }}</pre>
+<ng-container *ngIf="!isEdit">
+  <button class="btn btn-default" (click)="isEdit = !isEdit">Edit</button>
+  <pre> {{ artist$ | async | json }}</pre>
+</ng-container>
+
+<ng-container *ngIf="isEdit">
+  <button class="btn btn-default" (click)="isEdit = false">Edit</button>
+  Edit
+</ng-container>
