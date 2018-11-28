@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.title = Date.now().toString();
-    setTimeout( () => this.number = 2, 2000);
-    setInterval( () => this.title = Date.now().toString(), 1000);
+    // setTimeout( () => this.number = 2, 2000);
+    // setInterval( () => this.title = Date.now().toString(), 1000);
   }
 
   onDivClick() {

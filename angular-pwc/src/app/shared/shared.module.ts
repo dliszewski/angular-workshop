@@ -5,13 +5,15 @@ import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { RouterModule } from '@angular/router';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { HighlightDirective } from './directive/highlight.directive';
 
 @NgModule({
   declarations: [
     MenuComponent,
     HomeComponent,
     MapComponent,
-    RxjsComponent
+    RxjsComponent,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
   exports: [
     MenuComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    HighlightDirective
   ]
 })
 export class SharedModule { }
