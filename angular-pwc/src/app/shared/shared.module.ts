@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { UnlessDirective } from './directive/unless.directive';
+import { ImageUrlDirective } from './pipes/image-url.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UnlessDirective } from './directive/unless.directive';
     MapComponent,
     RxjsComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    ImageUrlDirective
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { UnlessDirective } from './directive/unless.directive';
     HomeComponent,
     MapComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    ImageUrlDirective
   ]
 })
 export class SharedModule { }
