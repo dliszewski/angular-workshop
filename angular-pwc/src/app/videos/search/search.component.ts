@@ -47,4 +47,12 @@ export class SearchComponent implements OnInit, OnDestroy {
     .subscribe(res => console.log(res), err => console.log(err));
   }
 
+  onDelete(video: Video) {
+    console.log('delete video', video);
+    this.videoService.deleteFavorite(video).subscribe(
+      v => console.log('V', v),
+      err => console.log('err', err)
+    );
+  }
+
 }

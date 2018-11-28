@@ -45,4 +45,14 @@ export class VideoService {
   getFavourites(): Observable<FavouriteVideo[]> {
     return this.favourites$.asObservable();
   }
+
+  deleteFavorite(video: Video): Observable<FavouriteVideo[]> {
+
+    return this.client.delete<FavouriteVideo>(this.base + '/videos/' + video.id.videoId).pipe(
+      switchMap((favoriteVideo) => {
+        return this.loadFavourite();
+      })
+    );
+
+  }
 }
