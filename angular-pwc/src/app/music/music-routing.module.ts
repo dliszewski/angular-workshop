@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArtistComponent } from './artist/artist.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
+import { ArtistViewComponent } from './artist-view/artist-view.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: 'view/:id',
-        component: ArtistEditComponent
+        component: ArtistViewComponent
       } , {
         path: 'edit/:id',
         component: ArtistEditComponent

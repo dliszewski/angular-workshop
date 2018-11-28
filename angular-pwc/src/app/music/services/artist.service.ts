@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Artist } from 'src/app/videos/model/music.model';
 import { BASE_URL } from 'src/app/shared/tokens';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,13 @@ export class ArtistService {
     .pipe(
       tap(fav => this.artists$.next(fav))
     );
+  }
+
+  getArtists(): Observable<Artist[]> {
+    return this.artists$.asObservable();
+  }
+
+  getArtist(id): Observable<Artist> {
+    return this.http.get<Artist>(this.base + '/artists/' + id);
   }
 }

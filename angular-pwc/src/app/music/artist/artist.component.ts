@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArtistService } from '../services/artist.service';
 import { Observable } from 'rxjs';
 import { Artist } from 'src/app/videos/model/music.model';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist',
