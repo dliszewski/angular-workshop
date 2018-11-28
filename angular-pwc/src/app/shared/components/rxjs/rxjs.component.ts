@@ -24,24 +24,34 @@ myObservable.subscribe(v => console.log('sub 2', v));
 const shared = myObservable.pipe(share());
 shared.subscribe(ob => console.log('sub shared 1', ob));
 
-const timer = Observable.create(observer => {
+const timer$ = Observable.create(observer => {
   console.log('create timer');
   let count = 0;
   const sub = setInterval(() => {
     count++;
     console.log('create count', count);
     observer.next(count);
+    if (count < 2) {
+      observer.error('test error');
+    }
     if (count > 2) {
     observer.complete();
     }
   }, 1000);
-  return () => clearInterval(sub);
+  return () => {
+    console.log('cleaning');
+    clearInterval(sub);
+  };
 });
 
-const subscription = timer.subscribe(v => console.log('timer', v));
-setTimeout( () => {
-  subscription.unsubscribe();
-}, 24000);
+const subscription = timer$.subscribe(
+  v => console.log('suc', v),
+  err => console.log('error', err),
+  () => console.log('complete')
+);
+// setTimeout( () => {
+//   subscription.unsubscribe();
+// }, 2300);
 
 @Component({
   selector: 'app-rxjs',
