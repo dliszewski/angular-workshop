@@ -5,5 +5,15 @@
 
 <ng-container *ngIf="isEdit">
   <button class="btn btn-default" (click)="isEdit = false">Edit</button>
-  Edit
+  <form [formGroup]="artistForm">
+    <input type="hidden" formControlName="id">
+    <label>
+      Name: <input type="text" formControlName="name">
+    </label>
+    <label>
+      Img: <input type="text" formControlName="img">
+    </label>
+    <br>
+    <button class="btn btn-default" (click)="save()">Save</button>
+  </form>
 </ng-container>
