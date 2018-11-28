@@ -11,6 +11,12 @@
   <!--<p>test</p>-->
 <!--</ng-template>-->
 
+<p>
+Image url pipe: {{ 'image_url.jpg' | imageUrl }} <br>
+Image url pipe: {{ 'image_url.jpg' | imageUrl:'123'}} <br>
+Image url pipe: {{ 'image_url.jpg' | imageUrl:'123':'asd' }} <br>
+</p>
+
 <p>nasza stopka</p>
 <!-- [] communication to component -->
 <div [style.color]="'red'">style attribute</div>

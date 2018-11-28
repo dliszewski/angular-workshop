@@ -1,10 +1,15 @@
-import { Directive } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Directive({
-  selector: '[appImageUrl]'
+@Pipe({
+  name: 'imageUrl'
 })
-export class ImageUrlDirective {
+export class ImageUrlDirective implements PipeTransform {
 
   constructor() { }
+
+  transform(value: any, ...args: any[]): any {
+    console.log('transform image url', value, args);
+    return 'magic_' + value;
+  }
 
 }
