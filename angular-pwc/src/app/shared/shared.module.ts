@@ -10,6 +10,7 @@ import { UnlessDirective } from './directive/unless.directive';
 import { ImageUrlDirective } from './pipes/image-url.directive';
 import { AuthDialogComponent } from './dialogs/auth-dialog/auth-dialog.component';
 import { AuthDirective } from './directives/auth.directive';
+import {MatDialogModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthDirective } from './directives/auth.directive';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [
     MenuComponent,
@@ -35,6 +37,7 @@ import { AuthDirective } from './directives/auth.directive';
     UnlessDirective,
     ImageUrlDirective,
     AuthDialogComponent
-  ]
+  ],
+  entryComponents: [AuthDialogComponent]
 })
 export class SharedModule { }
