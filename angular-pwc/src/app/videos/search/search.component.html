@@ -8,6 +8,8 @@
   Szukam: {{query}}
 </p>
 
+<a href="Favourite Videos" [routerLink]="['../list']" class="btn btn-default">Favourite videos</a>
+
 <ng-container *ngIf="response$ | async as videos; else elseTemplate">
   <!-- {{ videos | json}} -->
   <!-- <div *ngFor="let video of videos">
