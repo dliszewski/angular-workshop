@@ -8,6 +8,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { UnlessDirective } from './directive/unless.directive';
 import { ImageUrlDirective } from './pipes/image-url.directive';
+import { AuthDialogComponent } from './dialogs/auth-dialog/auth-dialog.component';
+import { AuthDirective } from './directives/auth.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ImageUrlDirective } from './pipes/image-url.directive';
     RxjsComponent,
     HighlightDirective,
     UnlessDirective,
-    ImageUrlDirective
+    ImageUrlDirective,
+    AuthDialogComponent,
+    AuthDirective
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,8 @@ import { ImageUrlDirective } from './pipes/image-url.directive';
     MapComponent,
     HighlightDirective,
     UnlessDirective,
-    ImageUrlDirective
+    ImageUrlDirective,
+    AuthDialogComponent
   ]
 })
 export class SharedModule { }
