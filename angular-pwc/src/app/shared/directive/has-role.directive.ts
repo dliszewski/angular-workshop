@@ -16,7 +16,23 @@ export class HasRoleDirective implements OnInit, OnDestroy {
 
   @Input() set appHasRole(role: string[]) {
       console.log('set user role', role);
+    // tak robić
       this.roles$.next(role || []);
+
+    // jak nie robić
+    // const sub: Subscription = this.user$
+    //   .pipe(takeUntil(this.destroy$)) // ->
+    //   .subscribe(
+    //     (user) => {
+    //       console.log('subscribe', roles, user);
+    //       if (user && roles.includes(user.role)) {
+    //         this.setView();
+    //       } else {
+    //         this.clearView();
+    //       }
+    //     }
+    //   );
+    // sub.unsubscribe();
   }
 
 
@@ -27,6 +43,8 @@ export class HasRoleDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     combineLatest(this.user$, this.roles$)
       .pipe(takeUntil(this.destroy$))
+      // przykład że możemy coś jeszcze asynchronicznego zrobić
+      // switchMap(([roles, user]) => this.userService.logChange(roles, user))
       .subscribe( ([user, roles]) => {
       console.log('sub', user, roles);
       if (user && roles.includes(user.role)) {
