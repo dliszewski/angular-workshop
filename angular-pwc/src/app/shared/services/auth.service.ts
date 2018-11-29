@@ -20,7 +20,9 @@ export class AuthService {
       } else {
         return of(user);
       }
-    })
+    }),
+    share(),
+    take(1)
   );
 
     // switchMap(user => {

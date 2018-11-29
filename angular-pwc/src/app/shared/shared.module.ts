@@ -10,7 +10,8 @@ import { UnlessDirective } from './directive/unless.directive';
 import { ImageUrlDirective } from './pipes/image-url.directive';
 import { AuthDialogComponent } from './dialogs/auth-dialog/auth-dialog.component';
 import { AuthDirective } from './directives/auth.directive';
-import {MatDialogModule} from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import {MatDialogModule} from '@angular/material';
   imports: [
     CommonModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   exports: [
     MenuComponent,
@@ -36,7 +41,12 @@ import {MatDialogModule} from '@angular/material';
     HighlightDirective,
     UnlessDirective,
     ImageUrlDirective,
-    AuthDialogComponent
+    AuthDialogComponent,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   entryComponents: [AuthDialogComponent]
 })
