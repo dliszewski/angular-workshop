@@ -11,7 +11,20 @@ import {switchMap, tap} from 'rxjs/operators';
 export class UserService {
   public name = 'auto';
   private _user$ = new BehaviorSubject<User | null>(null);
-  constructor(@Inject(BASE_URL) private baseUrl: string, private http: HttpClient) { }
+  constructor(@Inject(BASE_URL) private baseUrl: string, private http: HttpClient) {
+    const userFromStorage = localStorage.getItem('user');
+    if (userFromStorage) {
+      try {
+        this._user$.next(JSON.parse(userFromStorage));
+      } catch (err) {
+        console.log('Error parse user', err);
+      }
+    }
+    // update user from session
+    this._user$.subscribe(user => {
+      localStorage.setItem('user', JSON.stringify(user));
+    });
+  }
 
   get user$ () {
     return this._user$.asObservable();
@@ -41,6 +54,8 @@ export class UserService {
     // Observable.create(observer => {
     //   observer.create(null);
     //   observer.next(null);
+    //   observer.complete();
+    //   return () => {};
     // });
     this._user$.next(null);
     return of(null);
