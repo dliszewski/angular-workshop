@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
 import {User} from '../../videos/model/music.model';
 import {BASE_URL} from '../tokens';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 import {switchMap, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -59,5 +59,9 @@ export class UserService {
     // });
     this._user$.next(null);
     return of(null);
+  }
+
+  onRequest(req: HttpRequest<any>) {
+    console.log('onRequest', req);
   }
 }
