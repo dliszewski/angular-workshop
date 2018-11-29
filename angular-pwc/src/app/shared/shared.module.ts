@@ -12,6 +12,7 @@ import { AuthDialogComponent } from './dialogs/auth-dialog/auth-dialog.component
 import { AuthDirective } from './directives/auth.directive';
 import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HasRoleDirective } from './directive/has-role.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UnlessDirective,
     ImageUrlDirective,
     AuthDialogComponent,
-    AuthDirective
+    AuthDirective,
+    HasRoleDirective
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,9 @@
     <li class="nav">
       <ng-container *ngIf="userService.user$ | async as user; else elseTemplate">
         <a class="nav-link">{{user.name}} <span (click)="userService.logout()">[logout]</span></a>
+
+        <button class="nav-link" *appHasRole="['admin']">Admin</button>
+        <button class="nav-link" *appHasRole="['user']">User</button>
       </ng-container>
       <ng-template #elseTemplate>
         <button class="nav-link" appAuth>Login</button>
