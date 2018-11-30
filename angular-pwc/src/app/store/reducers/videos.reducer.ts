@@ -6,12 +6,14 @@ export interface State {
   credits: string;
   user: User | null;
   videos: Video[];
+  query: string;
 }
 
 export const initialState: State = {
   credits: 'Szkolenie Angular 2018',
   user: null,
-  videos: []
+  videos: [],
+  query: null
 };
 
 export function reducer(state = initialState, action: VideosActions): State {
@@ -39,6 +41,12 @@ export function reducer(state = initialState, action: VideosActions): State {
       return {
         ...state,
         videos: action.payload
+      };
+
+    case VideosActionTypes.SearchVideo:
+      return {
+        ...state,
+        query: action.payload
       };
 
     default:

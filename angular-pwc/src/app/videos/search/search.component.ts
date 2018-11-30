@@ -15,6 +15,7 @@ import {SearchVideoAction} from '../../store/actions/videos.actions';
 export class SearchComponent implements OnInit, OnDestroy {
   query: string;
   response$: Observable<Video[]>;
+  query$: Observable<string>;
   // resp: YoutubeResponse;
   destroy$ = new Subject();
   favourites$: Observable<FavouriteVideo[]>;
@@ -24,6 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.videoService.loadFavourite().subscribe(res => console.log('sub', res));
     this.favourites$ = this.videoService.getFavourites();
     this.response$ = this.store.select('videos', 'videos');
+    this.query$ = this.store.select('videos', 'query');
   }
 
   onChanges(value) {
