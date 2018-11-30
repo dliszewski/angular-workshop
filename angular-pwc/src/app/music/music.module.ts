@@ -7,9 +7,10 @@ import { ArtistViewComponent } from './artist-view/artist-view.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistProfileComponent } from './components/artist-profile/artist-profile.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SongsComponent } from './components/songs/songs.component';
 
 @NgModule({
-  declarations: [ArtistComponent, ArtistViewComponent, ArtistEditComponent, ArtistProfileComponent],
+  declarations: [ArtistComponent, ArtistViewComponent, ArtistEditComponent, ArtistProfileComponent, SongsComponent],
   imports: [
     CommonModule,
     MusicRoutingModule,

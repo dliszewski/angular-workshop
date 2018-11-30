@@ -1,0 +1,14 @@
+<ng-container *ngIf="!songDetail">
+  <h2>Songs:</h2>
+  <ng-container *ngFor="let song of songs$ | async">
+    <p (click)="songDetail = song">{{ song.title}}</p>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="songDetail">
+  <button class="btn btn-default" (click)="songDetail = null">Back</button>
+  <p>Song datils: </p>
+  <p>name: {{ songDetail.title }}</p>
+  <p>year: {{ songDetail.year }}</p>
+  <p>year: {{ songDetail.artistId }}</p>
+  <p>year: {{ songDetail.webUrl }}</p>
+</ng-container>

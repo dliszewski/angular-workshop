@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Artist} from 'src/app/videos/model/music.model';
 import {delay, distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 import {ArtistService} from '../services/artist.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {BASE_URL, IMAGES_BASE_URL} from '../../shared/tokens';
 
 @Component({
   selector: 'app-artist-view',
@@ -16,7 +17,7 @@ export class ArtistViewComponent implements OnInit {
   public artist$: Observable<Artist>;
   isEdit = false;
 
-  constructor(private route: ActivatedRoute, private artistService: ArtistService) {
+  constructor(private route: ActivatedRoute, private artistService: ArtistService, @Inject(IMAGES_BASE_URL) public imageUrl: string) {
   }
 
   artistForm: FormGroup;

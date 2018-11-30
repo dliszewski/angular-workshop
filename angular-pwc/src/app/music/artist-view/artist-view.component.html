@@ -1,6 +1,14 @@
-<ng-container *ngIf="!isEdit">
+<ng-container *ngIf="!isEdit ">
   <button class="btn btn-default" (click)="isEdit = !isEdit">Edit</button>
-  <pre> {{ artist$ | async | json }}</pre>
+  <button class="btn btn-default" [routerLink]="['songs']">Songs</button>
+  <ng-container *ngIf="artist$ | async as artist">
+  <!--<pre> {{ artist$ | async | json }}</pre>-->
+  <p>Name: {{ artist.name }}</p>
+  <p>Location: {{ artist.location.lat }}</p>
+  <p>Location: {{ artist.location.lng }}</p>
+  <!--<h3>Name: {{ artist.name }}</h3>-->
+  <img class="img-thumbnail" [src]="imageUrl + artist.img">
+  </ng-container>
 </ng-container>
 
 <ng-container *ngIf="isEdit">
@@ -17,3 +25,6 @@
     <button class="btn btn-default" (click)="save()">Save</button>
   </form>
 </ng-container>
+<br>
+
+<router-outlet></router-outlet>
