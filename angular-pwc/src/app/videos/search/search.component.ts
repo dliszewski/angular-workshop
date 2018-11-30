@@ -3,6 +3,9 @@ import { Observable, Subject } from 'rxjs';
 import { Video, FavouriteVideo } from '../model/video.model';
 import { SearchService } from '../search.service';
 import { VideoService } from '../services/video.service';
+import {State} from '../../store/reducers';
+import {Store} from '@ngrx/store';
+import {SearchVideoAction} from '../../store/actions/videos.actions';
 
 @Component({
   selector: 'app-search',
@@ -15,11 +18,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   // resp: YoutubeResponse;
   destroy$ = new Subject();
   favourites$: Observable<FavouriteVideo[]>;
-  constructor(private searchService: SearchService, private videoService: VideoService) { }
+  constructor(private searchService: SearchService, private videoService: VideoService, public store: Store<State>) { }
 
   ngOnInit() {
     this.videoService.loadFavourite().subscribe(res => console.log('sub', res));
     this.favourites$ = this.videoService.getFavourites();
+    this.response$ = this.store.select('videos', 'videos');
   }
 
   onChanges(value) {
@@ -29,7 +33,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   onSearch() {
     console.log('submit', this.query);
-    this.response$ = this.searchService.searchYoutube(this.query);
+    this.store.dispatch(new SearchVideoAction(this.query));
+    // this.response$ = this.searchService.searchYoutube(this.query);
 
     // this.searchService.searchYoutube(this.query)
     // .pipe(takeUntil(this.destroy$))

@@ -35,6 +35,12 @@ export function reducer(state = initialState, action: VideosActions): State {
         user: action.payload
       };
 
+    case VideosActionTypes.SearchVideoResponse:
+      return {
+        ...state,
+        videos: action.payload
+      };
+
     default:
       return state;
   }
