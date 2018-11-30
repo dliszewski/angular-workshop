@@ -10,6 +10,9 @@ import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './share/error/error.component';
 import {HttpInterceptorService} from './shared/interceptor/http-interceptor.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import {HttpInterceptorService} from './shared/interceptor/http-interceptor.serv
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     {
