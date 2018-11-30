@@ -45,3 +45,10 @@ vscode-icons
 https://bitbucket.org/myflowpl/angular-pwc
 
 http://rxmarbles.com/
+
+ngrx
+npm install @ngrx/schematics --save-dev
+npm install @ngrx/store --save
+npm install @ngrx/effects --save
+npm install @ngrx/store-devtools --save
+ng config cli.defaultCollection @ngrx/schematics
