@@ -4,7 +4,7 @@ import {Video} from '../../videos/model/video.model';
 
 export interface State {
   credits: string;
-  user: User;
+  user: User | null;
   videos: Video[];
 }
 
@@ -27,6 +27,12 @@ export function reducer(state = initialState, action: VideosActions): State {
       return {
         ...state,
         credits: action.payload
+      };
+
+    case VideosActionTypes.UserLoginRsponse:
+      return {
+        ...state,
+        user: action.payload
       };
 
     default:

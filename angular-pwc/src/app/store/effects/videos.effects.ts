@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { VideosActionTypes } from '../actions/videos.actions';
+import {UserLoginResponseAction, VideosActionTypes} from '../actions/videos.actions';
+import {map, switchMap} from 'rxjs/operators';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Injectable()
 export class VideosEffects {
 
   @Effect()
-  loadFoos$ = this.actions$.pipe(ofType(VideosActionTypes.LoadVideoss));
+  // each effect has input Action and must output action
+  userLogin$ = this.actions$.pipe(
+    ofType(VideosActionTypes.UserLogin),
+    switchMap(() => this.authService.loginDialog$.pipe(
+      map(user => new UserLoginResponseAction(user))
+    ))
+  );
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private authService: AuthService) {}
 }

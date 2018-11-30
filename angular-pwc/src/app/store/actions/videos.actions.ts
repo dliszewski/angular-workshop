@@ -1,8 +1,11 @@
 import { Action } from '@ngrx/store';
+import {User} from '../../videos/model/music.model';
 
 export enum VideosActionTypes {
   LoadVideoss = '[Videos] Load Videoss',
-  UpdateCredits = '[Videos] Update Credits'
+  UpdateCredits = '[Videos] Update Credits',
+  UserLogin = '[User] User Login',
+  UserLoginRsponse = '[User] User Login Response',
 }
 
 export class LoadVideoss implements Action {
@@ -14,4 +17,13 @@ export class UpdateCreditsAction implements Action {
   constructor(public payload: string) { }
 }
 
-export type VideosActions = LoadVideoss | UpdateCreditsAction;
+export class UserLoginAction implements Action {
+  readonly type = VideosActionTypes.UserLogin;
+}
+
+export class UserLoginResponseAction implements Action {
+  readonly type = VideosActionTypes.UserLoginRsponse;
+  constructor(public payload: User | null) { }
+}
+
+export type VideosActions = LoadVideoss | UpdateCreditsAction | UserLoginAction | UserLoginResponseAction;
