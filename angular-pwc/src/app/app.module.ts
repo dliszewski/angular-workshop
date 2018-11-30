@@ -13,6 +13,9 @@ import {HttpInterceptorService} from './shared/interceptor/http-interceptor.serv
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import * as fromVideos from './store/reducers/videos.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { VideosEffects } from './store/effects/videos.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forFeature('videos', fromVideos.reducer),
+    EffectsModule.forRoot([VideosEffects])
   ],
   providers: [
     {

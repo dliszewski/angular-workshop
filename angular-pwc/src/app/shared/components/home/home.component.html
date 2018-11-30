@@ -25,3 +25,5 @@ Image url pipe: {{ 'image_url.jpg' | imageUrl:'123':'asd' }} <br>
 <div [style.color]=red (click)=onDivClick()>style attribute</div>
 
 <app-map [coords]="coords" (mapClick)="onMapClick($event)"></app-map>
+
+<p> credits: to {{ credits$ | async}}</p>

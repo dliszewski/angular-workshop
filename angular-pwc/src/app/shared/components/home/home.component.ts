@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {Coords} from '../../../videos/model/music.model';
+import {Store} from '@ngrx/store';
+import {State} from '../../../store/reducers';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +20,9 @@ export class HomeComponent implements OnInit {
   number2 = 666;
   red = 'red';
   public coords: Coords;
-  constructor() { }
+
+  credits$: Observable<string> = this.store.select('videos', 'credits');
+  constructor(public store: Store<State>) { }
 
   ngOnInit() {
     this.title = Date.now().toString();
