@@ -11,4 +11,8 @@
   <p>year: {{ songDetail.year }}</p>
   <p>year: {{ songDetail.artistId }}</p>
   <p>year: {{ songDetail.webUrl }}</p>
+
+  <app-song-form [song]="songDetail" (save)="onSongSave($event)" (cancel)="onSongCancel()">
+
+  </app-song-form>
 </ng-container>

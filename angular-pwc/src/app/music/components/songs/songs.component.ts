@@ -27,4 +27,12 @@ export class SongsComponent implements OnInit {
       tap(r => console.log('res', r))
     );
   }
+
+  onSongSave(event) {
+    console.log('onSongSave', event);
+  }
+
+  onSongCancel() {
+    console.log('onSongCancel', event);
+  }
 }
