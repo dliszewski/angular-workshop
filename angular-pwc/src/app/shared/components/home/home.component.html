@@ -26,4 +26,4 @@ Image url pipe: {{ 'image_url.jpg' | imageUrl:'123':'asd' }} <br>
 
 <app-map [coords]="coords" (mapClick)="onMapClick($event)"></app-map>
 
-<p> credits: to {{ credits$ | async}}</p>
+<p (click)="updateCredits()"> credits: to {{ credits$ | async}}</p>

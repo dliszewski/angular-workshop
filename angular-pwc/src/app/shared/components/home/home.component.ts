@@ -4,6 +4,7 @@ import {Coords} from '../../../videos/model/music.model';
 import {Store} from '@ngrx/store';
 import {State} from '../../../store/reducers';
 import {Observable} from 'rxjs';
+import {UpdateCreditsAction} from '../../../store/actions/videos.actions';
 
 @Component({
   selector: 'app-home',
@@ -38,5 +39,9 @@ export class HomeComponent implements OnInit {
   onMapClick(event: Coords) {
     console.log('Map clicked', event);
     this.coords = event;
+  }
+
+  updateCredits() {
+    this.store.dispatch(new UpdateCreditsAction('New credits ' + Date.now()));
   }
 }
