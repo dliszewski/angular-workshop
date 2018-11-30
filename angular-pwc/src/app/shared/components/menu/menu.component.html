@@ -15,6 +15,14 @@
     </li>
   </ul>
   <ul class="navbar-nav ml-auto">
+
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="userService.idleTime | async as time">
+        idle time: <b>{{time}}s</b>
+        <span *ngIf="time < 3" (click)="userService.refreshButtonClick$.next()">REFRESH</span>
+      </a>
+    </li>
+
     <li class="nav">
       <ng-container *ngIf="userService.user$ | async as user; else elseTemplate">
         <a class="nav-link">{{user.name}} <span (click)="userService.logout()">[logout]</span></a>
