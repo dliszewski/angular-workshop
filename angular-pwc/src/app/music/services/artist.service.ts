@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Artist, Song} from 'src/app/videos/model/music.model';
 import { BASE_URL } from 'src/app/shared/tokens';
 import {BehaviorSubject, merge, Observable, of, Subject} from 'rxjs';
-import {tap, startWith, switchMap} from 'rxjs/operators';
+import {tap, startWith, switchMap, delay, mapTo} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -37,16 +37,18 @@ export class ArtistService {
   }
 
   getArtistTest(parametry: { sort: string, page: number, order: string }): Observable<Artist[]> {
-    debugger
-    return this.http.get<Artist[]>(this.base + '/artists', {
-        params: {
-          _page: parametry.page+'',
-          _sort: parametry.sort+'',
-          _limit: 2+'',
-          _order: parametry.order+''
+    // debugger
+    return of(1).pipe(
+      delay(2000),
+      switchMap(() => this.http.get<Artist[]>(this.base + '/artists', {
+          params: {
+            _page: parametry.page + '',
+            _sort: parametry.sort + '',
+            _limit: 2 + '',
+            _order: parametry.order + ''
+          }
         }
-      }
-    )
+      )))
   }
 
   updateArtist(artist: Artist): Observable<Artist> {

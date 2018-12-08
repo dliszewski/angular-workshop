@@ -1,5 +1,15 @@
   <div class="row">
     <div class="col-md-6">
+      <h5>-- Test --</h5>
+      <button class="btn btn-default" (click)="goTo($event)">Next page</button>
+      <button class="btn btn-default" (click)="sortBy('name')">Sort by name</button>
+      <button class="btn btn-default" (click)="sortBy('img')">Sort by img</button>
+      <button class="btn btn-default" (click)="orderBy('asc')">Sort by img</button>
+      <button class="btn btn-default" (click)="orderBy('desc')">Sort by img</button>
+      <ng-container *ngFor="let art of source$ | async">
+        <p>Artist {{art.name}}</p>
+      </ng-container>
+      <h5>-- Test --</h5>
       <div *ngIf="artists$ | async; else loading">
           <ng-container *ngFor="let artist of artists$ | async">
               <a [routerLink]="['view', artist.id]">Artist {{artist.name}}</a><br>
@@ -7,13 +17,6 @@
       </div>
      <ng-template #loading>Loading...... </ng-template>
 
-      <h5>-- Test --</h5>
-      <button class="btn btn-default" (click)="goTo($event)">First page</button>
-      <button class="btn btn-default" (click)="sortBy('name')">Sort</button>
-      <ng-container *ngFor="let art of source$ | async">
-        <p>Artist {{art.name}}</p>
-      </ng-container>
-      <h5>-- Test --</h5>
     </div>
     <div class="col-md-6">
       <router-outlet></router-outlet>
