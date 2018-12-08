@@ -6,6 +6,14 @@
             </ng-container>
       </div>
      <ng-template #loading>Loading...... </ng-template>
+
+      <h5>-- Test --</h5>
+      <button class="btn btn-default" (click)="goTo($event)">First page</button>
+      <button class="btn btn-default" (click)="sortBy('name')">Sort</button>
+      <ng-container *ngFor="let art of source$ | async">
+        <p>Artist {{art.name}}</p>
+      </ng-container>
+      <h5>-- Test --</h5>
     </div>
     <div class="col-md-6">
       <router-outlet></router-outlet>

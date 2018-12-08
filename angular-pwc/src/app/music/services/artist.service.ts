@@ -36,6 +36,19 @@ export class ArtistService {
     return this.http.get<Artist>(this.base + '/artists/' + id);
   }
 
+  getArtistTest(parametry: { sort: string, page: number, order: string }): Observable<Artist[]> {
+    debugger
+    return this.http.get<Artist[]>(this.base + '/artists', {
+        params: {
+          _page: parametry.page+'',
+          _sort: parametry.sort+'',
+          _limit: 2+'',
+          _order: parametry.order+''
+        }
+      }
+    )
+  }
+
   updateArtist(artist: Artist): Observable<Artist> {
     return this.http.patch<Artist>(this.base + '/artists/' + artist.id, artist)
       .pipe(tap(() => this.reload$.next()));
